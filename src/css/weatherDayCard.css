@@ -11,4 +11,5 @@
 
 .weatherDayCardConditionText{
     height: 48px;
+    line-height: 24px;
 }

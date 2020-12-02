@@ -1,3 +1,17 @@
 .weatherContainer{
     text-align: center;
 }
+
+.currentWeatherContainer{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    padding: 5px;
+    display: inline-block;
+    width: 120px;
+}
+
+.currentWeatherConditionText{
+    height: 48px;
+    line-height: 24px;
+}

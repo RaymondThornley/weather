@@ -39,37 +39,13 @@ class Weather extends React.Component<{}, weatherState>{
             hasSearched: false,
             isMetric: false,
             currentWeather: {
-                location: "New New York",
-                condition: "Overcast",
-                conditionIcon: "//cdn.weatherapi.com/weather/64x64/day/122.png",
-                temperatureF: "30",
-                temperatureC: "0"
+                location: "",
+                condition: "",
+                conditionIcon: "",
+                temperatureF: "",
+                temperatureC: ""
             },
-            forecastWeather: [{
-                date: "2020-12-01",
-                condition: "Overcast",
-                conditionIcon: "//cdn.weatherapi.com/weather/64x64/day/122.png",
-                highF: "40",
-                lowF: "20",
-                highC: "10",
-                lowC: "-10"
-            }, {
-                date: "2020-12-02",
-                condition: "Overcast",
-                conditionIcon: "//cdn.weatherapi.com/weather/64x64/day/122.png",
-                highF: "45",
-                lowF: "25",
-                highC: "12",
-                lowC: "-8"
-            }, {
-                date: "2020-12-03",
-                condition: "Overcast",
-                conditionIcon: "//cdn.weatherapi.com/weather/64x64/day/122.png",
-                highF: "50",
-                lowF: "30",
-                highC: "14",
-                lowC: "-6"
-            }],
+            forecastWeather: [],
             hasError: false,
             errorString: ""
         }
@@ -151,12 +127,16 @@ class Weather extends React.Component<{}, weatherState>{
                     : null}
                 {this.state.hasSearched ?
                     <React.Fragment>
-                        <div>Current weather at {this.state.currentWeather.location}</div>
-                        <div>
-                            <img src={this.state.currentWeather.conditionIcon} alt="" />
+                        <h4>Current weather at {this.state.currentWeather.location}:</h4>
+                        <div className="currentWeatherContainer">
+                            <div>
+                                <img src={this.state.currentWeather.conditionIcon} alt="" />
+                            </div>
+                            <div className="currentWeatherConditionText">{this.state.currentWeather.condition}</div>
+                            <div>{currentTemperature} &deg;{this.state.isMetric ? "C" : "F"}</div>
                         </div>
-                        <div>{this.state.currentWeather.condition}</div>
-                        <div>{currentTemperature} &deg;{this.state.isMetric ? "C" : "F"}</div>
+                        <br />
+                        <h5>Three day forecast:</h5>
                         <div>
                             {this.state.forecastWeather.map(this.createWeatherDayCard)}
                         </div>
