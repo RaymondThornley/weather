@@ -9,6 +9,7 @@
     padding: 5px;
     display: inline-block;
     width: 120px;
+    margin-bottom: 20px;
 }
 
 .currentWeatherConditionText{

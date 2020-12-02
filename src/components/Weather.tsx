@@ -113,7 +113,7 @@ class Weather extends React.Component<{}, weatherState>{
 
     render() {
         const currentTemperature = this.state.isMetric ? this.state.currentWeather.temperatureC : this.state.currentWeather.temperatureF;
-        const toggleMetricButtonText = this.state.isMetric ? "Set to Farenheit" : "Set to Celcius";
+        const toggleMetricButtonText = this.state.isMetric ? "Set to Fahrenheit" : "Set to Celsius";
 
         return (
             <Container className="weatherContainer">
@@ -135,7 +135,6 @@ class Weather extends React.Component<{}, weatherState>{
                             <div className="currentWeatherConditionText">{this.state.currentWeather.condition}</div>
                             <div>{currentTemperature} &deg;{this.state.isMetric ? "C" : "F"}</div>
                         </div>
-                        <br />
                         <h5>Three day forecast:</h5>
                         <div>
                             {this.state.forecastWeather.map(this.createWeatherDayCard)}
