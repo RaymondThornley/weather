@@ -116,35 +116,37 @@ class Weather extends React.Component<{}, weatherState>{
         const toggleMetricButtonText = this.state.isMetric ? "Set to Fahrenheit" : "Set to Celsius";
 
         return (
-            <Container className="weatherContainer">
-                <h1>Weather</h1>
-                <div>Please enter location:</div>
-                <input value={this.state.searchValue} onChange={this.changeSearchValue} />
-                <div>
-                <button onClick={this.searchWeather} className="btn btn-primary searchButton">Search</button>
-                <button onClick={this.clearSearch} className="btn btn-secondary searchButton">Clear</button>
-                </div>
-                {this.state.hasError ?
-                    <div>{this.state.errorString}</div>
-                    : null}
-                {this.state.hasSearched ?
-                    <React.Fragment>
-                        <h4>Current weather at {this.state.currentWeather.location}:</h4>
-                        <div className="currentWeatherContainer">
-                            <div>
-                                <img src={this.state.currentWeather.conditionIcon} alt="" />
+            <div className="outerContainer">
+                <Container className="weatherContainer">
+                    <h1>Weather</h1>
+                    <div>Please enter location:</div>
+                    <input value={this.state.searchValue} onChange={this.changeSearchValue} />
+                    <div>
+                        <button onClick={this.searchWeather} className="btn btn-primary searchButton">Search</button>
+                        <button onClick={this.clearSearch} className="btn btn-secondary searchButton">Clear</button>
+                    </div>
+                    {this.state.hasError ?
+                        <div>{this.state.errorString}</div>
+                        : null}
+                    {this.state.hasSearched ?
+                        <React.Fragment>
+                            <h4>Current weather at {this.state.currentWeather.location}:</h4>
+                            <div className="currentWeatherContainer">
+                                <div>
+                                    <img src={this.state.currentWeather.conditionIcon} alt="" />
+                                </div>
+                                <div className="currentWeatherConditionText">{this.state.currentWeather.condition}</div>
+                                <div>{currentTemperature} &deg;{this.state.isMetric ? "C" : "F"}</div>
                             </div>
-                            <div className="currentWeatherConditionText">{this.state.currentWeather.condition}</div>
-                            <div>{currentTemperature} &deg;{this.state.isMetric ? "C" : "F"}</div>
-                        </div>
-                        <h5>Three day forecast:</h5>
-                        <div>
-                            {this.state.forecastWeather.map(this.createForecastCard)}
-                        </div>
-                        <button onClick={this.toggleMetric} className="btn btn-secondary">{toggleMetricButtonText}</button>
-                    </React.Fragment>
-                    : null}
-            </Container>
+                            <h5>Three day forecast:</h5>
+                            <div>
+                                {this.state.forecastWeather.map(this.createForecastCard)}
+                            </div>
+                            <button onClick={this.toggleMetric} className="btn btn-secondary">{toggleMetricButtonText}</button>
+                        </React.Fragment>
+                        : null}
+                </Container>
+            </div>
         );
     }
 }

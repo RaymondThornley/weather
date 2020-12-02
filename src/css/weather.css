@@ -1,5 +1,12 @@
+.outerContainer{
+    background-color: darkgray;
+    min-height: 100vh;
+}
+
 .weatherContainer{
     text-align: center;
+    background-color: white;
+    min-height: 100vh;
 }
 
 .searchButton{
