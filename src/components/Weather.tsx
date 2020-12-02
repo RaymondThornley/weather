@@ -120,8 +120,10 @@ class Weather extends React.Component<{}, weatherState>{
                 <h1>Weather</h1>
                 <div>Please enter location:</div>
                 <input value={this.state.searchValue} onChange={this.changeSearchValue} />
-                <button onClick={this.searchWeather}>Search</button>
-                <button onClick={this.clearSearch}>Clear</button>
+                <div>
+                <button onClick={this.searchWeather} className="btn btn-primary searchButton">Search</button>
+                <button onClick={this.clearSearch} className="btn btn-secondary searchButton">Clear</button>
+                </div>
                 {this.state.hasError ?
                     <div>{this.state.errorString}</div>
                     : null}
@@ -139,7 +141,7 @@ class Weather extends React.Component<{}, weatherState>{
                         <div>
                             {this.state.forecastWeather.map(this.createForecastCard)}
                         </div>
-                        <button onClick={this.toggleMetric}>{toggleMetricButtonText}</button>
+                        <button onClick={this.toggleMetric} className="btn btn-secondary">{toggleMetricButtonText}</button>
                     </React.Fragment>
                     : null}
             </Container>

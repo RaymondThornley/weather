@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const uri = "http://api.weatherapi.com/v1/";
+const uri = "https://api.weatherapi.com/v1/";
 const apiKey = "816bb17f408d43a6a9a183505200112";
 
 const weatherActions = {
