@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import { Container } from 'react-bootstrap';
-import WeatherDayCard from './WeatherDayCard';
+import ForecastCard from './ForecastCard';
 import weatherActions from '../actions/weatherActions';
 import '../css/weather.css';
 
@@ -54,7 +54,7 @@ class Weather extends React.Component<{}, weatherState>{
         this.searchWeather = this.searchWeather.bind(this);
         this.clearSearch = this.clearSearch.bind(this);
         this.toggleMetric = this.toggleMetric.bind(this);
-        this.createWeatherDayCard = this.createWeatherDayCard.bind(this);
+        this.createForecastCard = this.createForecastCard.bind(this);
     }
 
     changeSearchValue(event: ChangeEvent<HTMLInputElement>) {
@@ -97,9 +97,9 @@ class Weather extends React.Component<{}, weatherState>{
         this.setState({ isMetric: !this.state.isMetric });
     }
 
-    createWeatherDayCard(forecastWeather: forecastWeatherType, index: number) {
+    createForecastCard(forecastWeather: forecastWeatherType, index: number) {
         return (
-            <WeatherDayCard
+            <ForecastCard
                 isMetric={this.state.isMetric}
                 date={forecastWeather.date}
                 condition={forecastWeather.condition}
@@ -137,7 +137,7 @@ class Weather extends React.Component<{}, weatherState>{
                         </div>
                         <h5>Three day forecast:</h5>
                         <div>
-                            {this.state.forecastWeather.map(this.createWeatherDayCard)}
+                            {this.state.forecastWeather.map(this.createForecastCard)}
                         </div>
                         <button onClick={this.toggleMetric}>{toggleMetricButtonText}</button>
                     </React.Fragment>

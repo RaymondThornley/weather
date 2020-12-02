@@ -11,7 +11,7 @@ type weatherDayCardProps = {
     low: string
 }
 
-const WeatherDayCard = (props: weatherDayCardProps) => {
+const ForecastCard = (props: weatherDayCardProps) => {
     return (
         <div className="weatherDayCardContainer">
             <div>{props.date}</div>
@@ -33,4 +33,4 @@ const WeatherDayCard = (props: weatherDayCardProps) => {
     );
 }
 
-export default WeatherDayCard;
+export default ForecastCard;
